@@ -14,5 +14,11 @@ else:
     job_posts = job_section.find_all('li')
     job_posts.pop(-1)
     for post in job_posts:
-      print(post)
-      print("/////////////////") #출력 시 구분을 위함
+      anchors = post.find_all('a')
+      anchor = anchors[1] # 두번째 anchor에만 관심 있음
+      link = anchor['href'] # beautifulsoup에서 dictionary 형태로 저장하기 때문에 href에 있는 값을 이와같이 가져올 수 있음
+      company, kind, region = anchor.find_all('span', class_="company") # list로 반환되므로 각 요소 변수에 저장
+      title = anchor.find('span', class_='title') #find_all이 아닌 find로 찾아오면 리스트로 반환X
+      print(company, kind,region, title)
+      print("////////////////")
+      print("////////////////")
