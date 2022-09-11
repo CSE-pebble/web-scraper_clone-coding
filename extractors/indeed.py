@@ -21,7 +21,7 @@ def get_page_count(keyword):
   else:
     return count
 
-def extract_indded_jobs(keyword):
+def extract_indeed_jobs(keyword):
   pages = get_page_count(keyword)
   print("Found", pages, "pages")
   results=[]
