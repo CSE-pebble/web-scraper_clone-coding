@@ -22,9 +22,9 @@ def extract_wwr_jobs(keyword):
         title = anchor.find('span', class_='title') #find_all이 아닌 find로 찾아오면 리스트로 반환X
         job_data = {
           'link':f"https://weworkremotely.com{link}",
-          'company': company.string,
-          'location': region.string,
-          'position': title.string
+          'company': company.string.replace(","," "),
+          'location': region.string.replace(","," "),
+          'position': title.string.replace(","," ")
         }
         results.append(job_data)
     return results
