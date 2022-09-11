@@ -21,8 +21,9 @@ def extract_wwr_jobs(keyword):
         company, kind, region = anchor.find_all('span', class_="company") # list로 반환되므로 각 요소 변수에 저장
         title = anchor.find('span', class_='title') #find_all이 아닌 find로 찾아오면 리스트로 반환X
         job_data = {
+          'link':f"https://weworkremotely.com{link}",
           'company': company.string,
-          'region': region.string,
+          'location': region.string,
           'position': title.string
         }
         results.append(job_data)
